@@ -3,22 +3,22 @@
 // Fetch request generator (pattern from the lesson)
 const fetchGenerator = (url) => fetch(url, { method: 'GET' });
 
-// Function for getting a todo
-const getTodo = () => {
-    return fetchGenerator('https://jsonplaceholder.typicode.com/todos/1')
+// Function for getting todo by id
+const getTodo = (id) => {
+    return fetchGenerator(`https://jsonplaceholder.typicode.com/todos/${id}`)
         .then((res) => res.json())
         .catch((err) => console.log(err));
 };
 
-// Function for getting a user
-const getUser = () => {
-    return fetchGenerator('https://jsonplaceholder.typicode.com/users/1')
+// Function for getting user by id
+const getUser = (id) => {
+    return fetchGenerator(`https://jsonplaceholder.typicode.com/users/${id}`)
         .then((res) => res.json())
         .catch((err) => console.log(err));
 };
 
 // Promise.all — waits until ALL promises are resolved
-const allResults = Promise.all([getTodo(), getUser()])
+const allResults = Promise.all([getTodo(1), getUser(1)])
     .then((res) => {
         console.log('Promise.all result:', res);
         return res;
@@ -26,7 +26,7 @@ const allResults = Promise.all([getTodo(), getUser()])
     .catch((err) => console.log(err));
 
 // Promise.race — returns the result of the FIRST resolved promise
-const raceResult = Promise.race([getTodo(), getUser()])
+const raceResult = Promise.race([getTodo(1), getUser(1)])
     .then((res) => {
         console.log('Promise.race result:', res);
         return res;

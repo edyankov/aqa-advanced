@@ -1,39 +1,43 @@
 // Task 4 (optional): classes with methods for working with API
 
-const fetchGenerator = (url) => fetch(url, { method: 'GET' });
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
-// Class with methods using then/catch (as in task2)
-class ApiClient {
-    getTodo() {
-        return fetchGenerator('https://jsonplaceholder.typicode.com/todos/1')
-            .then((res) => res.json())
-            .catch((err) => console.log(err));
-    }
-
-    getUser() {
-        return fetchGenerator('https://jsonplaceholder.typicode.com/users/1')
+// Base class — contains shared logic for both clients
+class BaseApiClient {
+    // Public method — will be available in child classes through this
+    fetchJson(url) {
+        return fetch(url, { method: 'GET' })
             .then((res) => res.json())
             .catch((err) => console.log(err));
     }
 }
 
-// Class with methods using async/await (as in task3)
-class AsyncApiClient {
-    async getTodo() {
-        const res = await fetchGenerator('https://jsonplaceholder.typicode.com/todos/1');
-        return res.json();
+// Class with methods using then/catch (as in task2)
+class ApiClient extends BaseApiClient {
+    getTodo(id) {
+        return this.fetchJson(`${BASE_URL}/todos/${id}`);
     }
 
-    async getUser() {
-        const res = await fetchGenerator('https://jsonplaceholder.typicode.com/users/1');
-        return res.json();
+    getUser(id) {
+        return this.fetchJson(`${BASE_URL}/users/${id}`);
+    }
+}
+
+// Class with methods using async/await (as in task3)
+class AsyncApiClient extends BaseApiClient {
+    async getTodo(id) {
+        return this.fetchJson(`${BASE_URL}/todos/${id}`);
+    }
+
+    async getUser(id) {
+        return this.fetchJson(`${BASE_URL}/users/${id}`);
     }
 }
 
 // --- Using ApiClient (with then/catch) ---
 const client = new ApiClient();
 
-Promise.all([client.getTodo(), client.getUser()])
+Promise.all([client.getTodo(1), client.getUser(1)])
     .then((res) => console.log('ApiClient Promise.all:', res))
     .catch((err) => console.log(err));
 
@@ -42,7 +46,7 @@ const asyncClient = new AsyncApiClient();
 
 const resolver = async () => {
     try {
-        const res = await Promise.all([asyncClient.getTodo(), asyncClient.getUser()]);
+        const res = await Promise.all([asyncClient.getTodo(1), asyncClient.getUser(1)]);
         console.log('AsyncApiClient Promise.all:', res);
     } catch (error) {
         console.log(error);
