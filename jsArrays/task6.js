@@ -5,5 +5,5 @@ const numbersList = [1, 10, 14, 2, 4, 5, 43, 34];
 // Copy the array using the spread operator because .sort() mutates the original
 const sortedNumbers = [...numbersList].sort((a, b) => a - b);
 
-console.log("Original array:", numbersList);
-console.log("Sorted array:", sortedNumbers);
+console.log('Original array:', numbersList);
+console.log('Sorted array:', sortedNumbers);

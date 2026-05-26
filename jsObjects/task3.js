@@ -1,15 +1,15 @@
 // Task 3: Merging objects using spread
 
 const car1 = {
-    brand: "Toyota",
-    model: "Camry",
+    brand: 'Toyota',
+    model: 'Camry',
     year: 2020,
 };
 
 const car2 = {
-    brand: "Honda",
-    model: "Civic",
-    owner: "Michael",
+    brand: 'Honda',
+    model: 'Civic',
+    owner: 'Michael',
 };
 
 // Spread merges properties. If keys are the same (brand, model) —

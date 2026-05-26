@@ -61,8 +61,6 @@ export class Book {
             console.error('Argument must be a non-empty array of books.');
             return null;
         }
-        return books.reduce((oldest, current) =>
-            current.year < oldest.year ? current : oldest
-        );
+        return books.reduce((oldest, current) => (current.year < oldest.year ? current : oldest));
     }
 }

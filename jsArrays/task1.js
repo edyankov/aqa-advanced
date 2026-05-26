@@ -16,6 +16,6 @@ for (let i = 0; i < numbers.length; i++) {
     }
 }
 
-console.log("Number of positive numbers:", positiveCount);
-console.log("Number of negative numbers:", negativeCount);
-console.log("Number of zero numbers:", zeroCount);
+console.log('Number of positive numbers:', positiveCount);
+console.log('Number of negative numbers:', negativeCount);
+console.log('Number of zero numbers:', zeroCount);

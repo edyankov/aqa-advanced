@@ -29,7 +29,7 @@ console.log('Updated ebook1 year:', ebook1.year);
 
 // Validation check — passing invalid value
 console.log('Trying to assign a string as year:');
-ebook1.year = 'not a number';   // Will print an error to console
+ebook1.year = 'not a number'; // Will print an error to console
 console.log('Year unchanged:', ebook1.year);
 
 // 4. Static method getOldestBook (accepts array of both classes)
@@ -46,6 +46,6 @@ ebook2.printInfo();
 
 // instanceof check
 console.log('\n--- instanceof check ---');
-console.log('ebook1 instanceof EBook:', ebook1 instanceof EBook);  // true
-console.log('ebook1 instanceof Book:', ebook1 instanceof Book);    // true (because of inheritance)
-console.log('book1 instanceof EBook:', book1 instanceof EBook);    // false
+console.log('ebook1 instanceof EBook:', ebook1 instanceof EBook); // true
+console.log('ebook1 instanceof Book:', ebook1 instanceof Book); // true (because of inheritance)
+console.log('book1 instanceof EBook:', book1 instanceof EBook); // false
