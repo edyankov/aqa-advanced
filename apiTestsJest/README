@@ -1,0 +1,25 @@
+# API Tests for JSONPlaceholder (Jest)
+
+Test scenario for validating interactions with the JSONPlaceholder API using axios and Jest.
+
+## What is being tested
+
+5 requests — 3 GET and 2 POST:
+
+1. `GET /posts` — retrieve a list of all posts
+2. `GET /posts/1` — retrieve a specific post
+3. `GET /users/1` — retrieve a user
+4. `POST /posts` — create a new post
+5. `POST /posts` — create a post with minimal data
+
+## Features
+
+- Request and response logging using axios interceptors
+- Status code validation
+- Validation of the structure and content of `response.data`
+
+## Running the tests
+
+```bash
+npm test apiTestsJest
+```
